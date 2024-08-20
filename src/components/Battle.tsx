@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { incrementMana, drawCards } from '../store/slices/characterSlice';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import generateStages from '../utils/generateStages';
 
 const Battle: React.FC = () => {
-  const dispatch = useDispatch();
-
-  // Função para começar o turno
-  const startTurn = () => {
-    dispatch(incrementMana());
-    dispatch(drawCards());
-  };
-
-  useEffect(() => {
-    // Começa o turno quando o componente for montado
-    startTurn();
-  }, []);
+  const { routeIndex } = useParams<{ routeIndex: string }>();
+  const stages = generateStages();
 
   return (
     <div>
-      <h2>Batalha!</h2>
-      {/* Aqui você pode adicionar mais lógica de batalha e interface gráfica */}
+      <h2>Batalha na Rota {parseInt(routeIndex || '0') + 1}</h2>
+      <div>Fase Atual: {stages[parseInt(routeIndex || '0')]}</div>
+      {/* Adicionar lógica de batalha aqui */}
     </div>
   );
 };

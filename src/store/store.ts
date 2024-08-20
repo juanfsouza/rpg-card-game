@@ -1,12 +1,9 @@
-// src/store/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import characterReducer from './slices/characterSlice';
+import rootReducer from './rootReducer';
 
-export const store = configureStore({
-  reducer: {
-    character: characterReducer,
-  },
+const store = configureStore({
+  reducer: rootReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export default store;
