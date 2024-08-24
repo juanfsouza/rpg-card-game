@@ -1,4 +1,4 @@
-# Projeto: Game Character Manager
+# Projeto: Game RPG Card
 
 ### Visão Geral do Projeto
 O Game RPG de Cartas é um aplicativo React desenvolvido para gerenciar personagens em um jogo, permitindo ao usuário selecionar personagens, gerenciar atributos como vida e mana, e realizar ações como comprar cartas e curar personagens.
