@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { selectCharacter } from '../store/slices/characterSlice';
 
-
 const characters = [
   { name: 'Rogue', color: 'red', image: '/images/rogue.png' },
   { name: 'Warrior', color: 'orange', image: '/images/warrior.png' },
@@ -16,10 +15,10 @@ interface CharacterSelectionProps {
 }
 
 const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onNext }) => {
-  const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<'druid' | 'rogue' | 'warrior' | 'mage' | null>(null);
   const dispatch = useDispatch();
 
-  const handleSelectCharacter = (character: string) => {
+  const handleSelectCharacter = (character: 'druid' | 'rogue' | 'warrior' | 'mage') => {
     setSelectedCharacter(character);
     dispatch(selectCharacter(character)); // Dispara a ação para selecionar o personagem
   };
@@ -32,7 +31,7 @@ const CharacterSelection: React.FC<CharacterSelectionProps> = ({ onNext }) => {
           <CharacterButton
             key={char.name}
             color={char.color}
-            onClick={() => handleSelectCharacter(char.name)}
+            onClick={() => handleSelectCharacter(char.name.toLowerCase() as 'druid' | 'rogue' | 'warrior' | 'mage')}
           >
             <img src={char.image} alt={char.name} />
             {char.name}

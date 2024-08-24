@@ -64,6 +64,7 @@ const CardGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 20px;
   width: 30%;
 `;
 
@@ -72,8 +73,8 @@ const Card = styled.div`
   cursor: pointer;
 
   img {
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: 180px;
     transition: transform 0.2s ease-in-out;
     &:hover {
       transform: scale(1.1);
